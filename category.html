@@ -516,15 +516,15 @@
     });
 
     
-  ScrollReveal().reveal('.reveal', {
-    origin: 'bottom',
-    distance: '30px',
-    duration: 1000,
-    delay: 100,
-    easing: 'ease-in-out',
-    interval: 200,
-    reset: true
-  });
+    ScrollReveal().reveal('.reveal', {
+  origin: 'bottom',
+  distance: '10px',   // less movement
+  duration: 400,      // faster animation
+  delay: 0,           // no delay before starting
+  easing: 'ease-out', // quick and natural feel
+  interval: 100,      // smaller delay between multiple elements
+  reset: true         // keeps revealing on scroll
+});
 
 
     
