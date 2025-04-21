@@ -236,67 +236,115 @@
    
     <h1 id="eyecare" class="reveal  text-3xl font-bold text-center mb-8">Eye Care</h1>
     <div class="reveal grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
-      <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
-      ">
-        <div class="bg-white-200 h-40 rounded mb-4">
-          <img src="eye 1.avif" class="h-40 w-65 hover:border-b-4 border-black  duration-100" alt="">
-        </div>
-        <div class="font-bold text-lg mb-1 "> LE SÉRUM YEUX</div>
-        <div class="text-black-100 font-light"> Ultimate Eye Serum – Regenerates and Illuminates</div>
-        <div class="text-black-600 font-bold">$353</div>
-      </div>
-      <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
-      ">
-        <div class="bg-white-200 h-40 rounded mb-4">
-          <img src="eye 2.avif" class="h-40 w-65 hover:border-b-4 border-black  duration-100" alt="">
-        </div>
-        <div class="font-bold text-lg mb-1 ">REVITALIZING EYE CREAM</div>
-        <div class="text-black-100 font-light"> Anti-Dark Circles – Anti-Puffiness – Smooths</div>
-        <div class="text-black-600 font-bold">$67</div>
-      </div>
-      <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
-      ">
-        <div class="bg-white-200 h-40 rounded mb-4">
-          <img src="eye 3.avif" class="h-40 w-65 hover:border-b-4 border-black  duration-100" alt="">
-        </div>
-        <div class="font-bold text-lg mb-1 ">LE LIFT SOIN LÈVRES ET CONTOURS</div>
-        <div class="text-black-100 font-light">Smoothing and Firming Lip and Contour Care</div>
-        <div class="text-black-600 font-bold">$55</div>
-      </div>
-      <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
-      ">
-        <div class="bg-white-200 h-40 rounded mb-4">
-          <img src="eye 4.avif" class="h-40 w-65 hover:border-b-4 border-black  duration-100" alt="">
-        </div>
-        <div class="font-bold text-lg mb-1 ">LE LIFT CRÈME YEUX</div>
-        <div class="text-black-100 font-light"> Smooths – Firms</div>
-        <div class="text-black-600 font-bold">$90</div>
-      </div>
-      <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
-      ">
-        <div class="bg-white-200 h-40 rounded mb-4">
-          <img src="eye 5.avif" class="h-40 w-65 hover:border-b-4 border-black  duration-100" alt="">
-        </div>
-        <div class="font-bold text-lg mb-1 ">REVITALIZING EYE SERUM – REFILL</div>
-        <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
-        <div class="text-black-600 font-bold">$200</div>
-      </div>
-      <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
-      ">
-        <div class="bg-white-200 h-40 rounded mb-4">
-          <img src="eye 6.avif" class="h-40 w-65 hover:border-b-4 border-black  duration-100" alt="">
-        </div>
-        <div class="font-bold text-lg mb-1 ">REVITALIZING EYE SERUM</div>
-        <div class="text-black-100 font-light">  Smooths – Restores – Refreshes</div>
-        <div class="text-black-600 font-bold">$93</div>
-      </div>
+    
+      <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+      data-id="le-serun-yeux"
+      data-title="LE SERUM YEUX"
+      data-description="A refreshing, hydrating serum designed to complement 
+      SUBLIMAGE LA CRÈME YEUX and restore eyes to their full expressive power."
+      data-price="$353"
+      data-img="eye 1.avif"
+      onclick="viewProduct(this)">
+    
+    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+      <img src="eye 1.avif" class="h-full w-full object-cover rounded" />
     </div>
+    <h3 class="text-lg font-semibold">LE SERUM YEUX</h3>
+    <div class="text-black-100 font-light">Ultimate Eye Serum – Regenerates and Illuminates</div>
+    <div class="text-black-600 font-bold">$353</div>
+  </div>
+
+      <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+      data-id="revitalizing-eye-cream"
+      data-title="REVITALIZING EYE CREAM"
+      data-description="A refreshing gel-cream that moisturizes the delicate eye area for a brighter appearance."
+      data-price="$67"
+      data-img="eye 2.avif"
+      onclick="viewProduct(this)">
+    
+    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+      <img src="eye 2.avif" class="h-full w-full object-cover rounded" />
+    </div>
+    <h3 class="text-lg font-semibold">REVITALIZING EYE CREAM</h3>
+    <div class="text-black-100 font-light">Anti-Dark Circles – Anti-Puffiness – Smooths</div>
+    <div class="text-black-600 font-bold">$67</div>
+  </div>
+
+      <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+      data-id="le-lift-soin-levres-et-contours"
+      data-title="LE LIFT SOIN LEVRES ET CONTOURS"
+      data-description="A powerful treatment that plumps and firms lips while visibly smoothing smile lines. 
+      The soft, balmy texture absorbs quickly and leaves a matte finish, creating the ideal base for makeup."
+      data-price="$55"
+      data-img="eye 3.avif"
+      onclick="viewProduct(this)">
+    
+    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+      <img src="eye 3.avif" class="h-full w-full object-cover rounded" />
+    </div>
+    <h3 class="text-lg font-semibold">LE LIFT SOIN LEVRES ET CONTOURS</h3>
+    <div class="text-black-100 font-light">Smoothing and Firming Lip and Contour Care</div>
+    <div class="text-black-600 font-bold">$55</div>
+  </div>
+
+      <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+      data-id="le-lift-creme-yeux"
+      data-title="LE LIFT CREME YEUX"
+      data-description="An eye cream that delivers a powerful combination of
+       nature and efficacy for a smoother, firmer, more youthful and radiant appearance."
+      data-price="$90"
+      data-img="eye 4.avif"
+      onclick="viewProduct(this)">
+    
+    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+      <img src="eye 4.avif" class="h-full w-full object-cover rounded" />
+    </div>
+    <h3 class="text-lg font-semibold">LE LIFT CREME YEUX</h3>
+    <div class="text-black-100 font-light">Smooths – Firms</div>
+    <div class="text-black-600 font-bold">$90</div>
+  </div>
+
+      <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+      data-id="revitalizing-eye-serum-refill"
+      data-title="REVITALIZING EYE SERUM REFILL"
+      data-description="Enriched with Red Camellia Extract, this refillable
+       serum instantly smooths and restores the look of skin, plus helps protect the delicate eye area."
+      data-price="$200"
+      data-img="eye 5.avif"
+      onclick="viewProduct(this)">
+    
+    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+      <img src="eye 5.avif" class="h-full w-full object-cover rounded" />
+    </div>
+    <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM REFILL</h3>
+    <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
+    <div class="text-black-600 font-bold">$200</div>
+  </div>
+
+      <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+        transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+        data-id="revitalizing-eye-serum"
+        data-title="REVITALIZING EYE SERUM "
+        data-description="Enriched with Red Camellia Extract, this refillable
+         serum instantly smooths and restores the look of skin, plus helps protect the delicate eye area."
+        data-price="$200"
+        data-img="eye 6.avif"
+        onclick="viewProduct(this)">
+      
+      <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+        <img src="eye 6.avif" class="h-full w-full object-cover rounded" />
+      </div>
+      <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM </h3>
+      <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
+      <div class="text-black-600 font-bold">$93</div>
+    </div>
+  </div>
+  
    
     <h1 id="oils" class=" reveal text-3xl font-bold text-center mb-8">Facial Oils</h1>
     <div class="reveal grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
