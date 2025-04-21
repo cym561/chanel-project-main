@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lugrasimo&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 
-   
     <title>See more chanel runaway</title>
 </head>
 <body >
-   <!-- Navbar -->
    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
     <nav class="flex justify-center space-x-4">
       <a href="index.html" class="flex items-center">
         <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto" />
       </a>
     <div class="flex justify-center space-x-4 py-3">
-
-      <!-- Categories Dropdown (Click to toggle) -->
       <div class="relative">
         <button id="dropdownToggle" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center space-x-1 focus:outline-none">
           <span>Categories</span>
@@ -31,26 +26,22 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-
-        <!-- Dropdown menu -->
         <div id="dropdownMenu" class="hidden absolute bg-white shadow-lg mt-2 rounded-md w-40 text-left max-h-60 overflow-y-auto z-50">
-          <a href="page1.html" class="block px-4 py-2 hover:bg-gray-100">Option 1</a>
-          <a href="page2.html" class="block px-4 py-2 hover:bg-gray-100">Option 2</a>
-          <a href="page3.html" class="block px-4 py-2 hover:bg-gray-100">Option 3</a>
-          <a href="page4.html" class="block px-4 py-2 hover:bg-gray-100">Option 4</a>
-          <a href="page5.html" class="block px-4 py-2 hover:bg-gray-100">Option 5</a>
-          <a href="page6.html" class="block px-4 py-2 hover:bg-gray-100">Option 6</a>
+          <a href="#moisturizer" class="block px-4 py-2 hover:bg-gray-100">Moisturizer</a>
+          <a href="#toner" class="block px-4 py-2 hover:bg-gray-100">Toner</a>
+          <a href="#bodycare" class="block px-4 py-2 hover:bg-gray-100">Body Care</a>
+          <a href="#eyecare" class="block px-4 py-2 hover:bg-gray-100">Eye Care</a>
+          <a href="#oils" class="block px-4 py-2 hover:bg-gray-100">Favial Oils</a>
+          <a href="#serums" class="block px-4 py-2 hover:bg-gray-100">Serums</a>
         </div>
       </div>
-
-      <!-- Other nav links -->
       <a href="index.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900">Home</a>
       <a href="Runway.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900">Contact</a>
 
     </div>
   </nav>
 
-  <h1 class="text-3xl font-bold text-center mb-8">Moisturizer</h1>
+  <h1 id="moisturizer" class="text-3xl font-bold text-center mb-8">Moisturizer</h1>
   <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
   <div class="reveal border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md transition 
   delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105">
@@ -115,7 +106,7 @@
   </div>
    
    
-    <h1 class="text-3xl font-bold text-center mb-8">Toner</h1>
+    <h1 id="toner" class="text-3xl font-bold text-center mb-8">Toner</h1>
     <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
       <div class="border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
@@ -179,7 +170,7 @@
       </div>
     </div>
    
-    <h1 class="text-3xl font-bold text-center mb-8">Body Care</h1>
+    <h1 id="bodycare" class="text-3xl font-bold text-center mb-8">Body Care</h1>
     <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
       <div class="border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
@@ -243,7 +234,7 @@
       </div>
     </div>
    
-    <h1 class="text-3xl font-bold text-center mb-8">Eye Care</h1>
+    <h1 id="eyecare" class="text-3xl font-bold text-center mb-8">Eye Care</h1>
     <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
       <div class="border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
@@ -307,7 +298,7 @@
       </div>
     </div>
    
-    <h1 class="text-3xl font-bold text-center mb-8">Facial Oils</h1>
+    <h1 id="oils" class="text-3xl font-bold text-center mb-8">Facial Oils</h1>
     <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
       <div class="border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
@@ -371,7 +362,7 @@
       </div>
     </div>
    
-    <h1 class="text-3xl font-bold text-center mb-8">Serums</h1>
+    <h1 id="serums" class="text-3xl font-bold text-center mb-8">Serums</h1>
     <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
       <div class="border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
