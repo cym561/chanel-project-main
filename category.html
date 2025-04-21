@@ -550,8 +550,23 @@
   reset: false        // keeps revealing on scroll
 });
 
+  function viewProduct(element) {
+    const product = {
+      id: element.dataset.id,
+      title: element.dataset.title,
+      description: element.dataset.description,
+      price: element.dataset.price,
+      img: element.dataset.img
+    };
 
-    
+    // Save to localStorage
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
+
+    // Navigate to product page
+    window.location.href = 'product.html?id=' + product.id;
+  }
+
+
   </script> 
 
  
