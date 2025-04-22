@@ -655,7 +655,7 @@ document.getElementById("menuToggle").addEventListener("click", function () {
     menu.classList.toggle("hidden");
   });
 
-function viewProduct(element) {
+  function viewProduct(element) {
     const product = {
       id: element.dataset.id,
       title: element.dataset.title,
@@ -664,13 +664,12 @@ function viewProduct(element) {
       img: element.dataset.img
     };
 
-    
     // Save to localStorage
-    localStorage.setItem('selectedProduct', JSON.stringify(item));
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
 
     // Navigate to product page
     window.location.href = 'product.html?id=' + product.id;
-  }
+  };
 
     function addToBag(button) {
   const item = button.closest('.item');
