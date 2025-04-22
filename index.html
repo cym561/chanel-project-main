@@ -633,11 +633,11 @@ const itemAbout = item.querySelector('.item-about').innerText;
   const itemPrice = item.querySelector('.item-price').innerText;
 
   const cartItem = {
-    image: itemImage,
-    name: itemName,
-    about: itemAbout,
-    price: itemPrice
-  };
+  image: itemImage,
+  name: itemName,
+  about: itemAbout,
+  price: itemPrice
+};
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
