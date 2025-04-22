@@ -37,7 +37,7 @@
         
 <h1 class="text-3xl font-bold text-center m-8 underline ">Chanel Runway</h1>
 <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 max-w-150 mx-auto mb-16">
-  <div class="bg-white border border-gray-300 rounded-lg p-6 text-center 
+  <div class="reveal bg-white rounded-lg p-6 text-center 
     transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105 
     font-semibold
     shadow hover:bg-white-100">
@@ -50,7 +50,7 @@
  </div>
 </div>
 
-<div class="bg-white border border-gray-300 rounded-lg p-6 text-center
+<div class="reveal bg-white rounded-lg p-6 text-center
   transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
   font-semibold shadow hover:bg-white-100">
   <div class="relative">
@@ -62,7 +62,7 @@
 </div>
   </div>
 
-  <div class="bg-white border border-gray-300 rounded-lg p-6 text-center
+  <div class="reveal bg-white rounded-lg p-6 text-center
   transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
   font-semibold shadow hover:bg-white-100">
   <div class="relative">
@@ -74,7 +74,7 @@
 </div>
   </div>
 
-  <div class="bg-white border border-gray-300 rounded-lg p-6 text-center
+  <div class="reveal bg-white  rounded-lg p-6 text-center
   transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
   font-semibold shadow hover:bg-white-100">
   <div class="relative">
@@ -85,8 +85,55 @@
   <img src="1-chanel-spring-2024.webp" class="w-full rounded-md " alt="">
 </div>
 </div>
+  <div class="reveal bg-white rounded-lg p-6 text-center
+  transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
+  font-semibold shadow hover:bg-white-100">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-end justify-center pt-4 text-black text-xl 
+    font-bold mt-29">
+    Resort 2024
+    </div>
+  <img src="-chanel-resort-2024.webp" class="w-full rounded-md " alt="">
+</div>
+</div>
 
- <div class="bg-white border border-gray-300 rounded-lg p-6 text-center 
+  <div class="reveal bg-white rounded-lg p-6 text-center
+  transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
+  font-semibold shadow hover:bg-white-100">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-end justify-center pt-4 text-black text-xl 
+    font-bold mt-29">
+    Fall 1996 Couture
+    </div>
+  <img src="chanel-fall-1996.webp" class="w-full rounded-md " alt="">
+</div>
+</div>
+
+  <div class="reveal bg-white rounded-lg p-6 text-center
+  transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
+  font-semibold shadow hover:bg-white-100">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-end justify-center pt-4 text-black text-xl 
+    font-bold mt-29">
+    Fall 1995 Couture
+    </div>
+  <img src="chanel-fall-1995.webp" class="w-full rounded-md " alt="">
+</div>
+</div>
+
+  <div class="reveal bg-white  rounded-lg p-6 text-center
+  transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
+  font-semibold shadow hover:bg-white-100">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-end justify-center pt-4 text-black text-xl 
+    font-bold mt-29">
+    Spring 1993 Couture
+    </div>
+  <img src="chanel-fall-1993.webp" class="w-full rounded-md " alt="">
+</div>
+</div>
+
+ <div class="reveal rbg-white  rounded-lg p-6 text-center 
   transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105
   font-semibold shadow hover:bg-white-100">
   <div class="relative">
@@ -98,20 +145,6 @@
 </div>
 </div>
        
-           
-            <img src="-chanel-resort-2024.webp" class="img-fluid shadow rounded" alt="resort">
-            <h3>Resort 2024</h3>
-       <img src="chanel-fall-1996.webp" class="img-fluid shadow rounded" alt="1996">
-            <h3>Fall 1996 Couture</h3>
-       
-            <img src="chanel-fall-1995.webp" class="img-fluid shadow rounded" alt="1995">
-            <h3>Fall 1995 Couture</h3>
-        
-            <img src="chanel-fall-1993.webp" class="img-fluid shadow rounded" alt="1993">
-            <h3>Spring 1993 Couture</h3>
-      
-    
-</div>
 
 <main class="reveal text-center px-4 py-10">
     <h2 class="reveal text-2xl font-bold text-gray-900">Chanel</h2>
@@ -192,7 +225,18 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
 
-    
+    <script>
+         ScrollReveal().reveal('.reveal', {
+  origin: 'bottom',
+  distance: '10px',   // less movement
+  duration: 400,      // faster animation
+  delay: 0,           // no delay before starting
+  easing: 'ease-out', // quick and natural feel
+  interval: 100,      // smaller delay between multiple elements
+  reset: false        // keeps revealing on scroll
+});
+
+    </script>
 
 </body>
 </html>
