@@ -36,15 +36,20 @@
       <a href="/" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Home</a>
       <a href="category.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Categories</a>
       <a href="runway.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Runway</a>
-      <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 6h15l-1.5 9h-13z" />
-          <circle cx="9" cy="20" r="1" />
-          <circle cx="18" cy="20" r="1" />
-        </svg>
-        Cart
-      </a>
-      
+      <div class="relative">
+        <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 6h15l-1.5 9h-13z" />
+            <circle cx="9" cy="20" r="1" />
+            <circle cx="18" cy="20" r="1" />
+          </svg>
+          Cart
+        </a>
+        <span id="cartCount" class="absolute top-1 -left-2 bg-orange-600 text-white 
+  text-xs w-5 h-5 flex items-center justify-center rounded-full">
+          0
+        </span>
+      </div>
     </div>
   </nav>
   
@@ -694,6 +699,18 @@ const itemAbout = item.querySelector('.item-about').innerText;
   }
 }
 
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.length;
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+      cartCountElement.textContent = count;
+      cartCountElement.style.display = count > 0 ? 'flex' : 'none';
+    }
+  }
+
+  // Run on page load
+  window.addEventListener('DOMContentLoaded', updateCartCount);
 
 
 
