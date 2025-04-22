@@ -116,7 +116,7 @@
   </nav>
   
     
-   <h1 id="toner" class="reveal text-3xl font-bold text-center mb-9 mt-20">Moisturizer</h1>
+   <h1 id="moisturizer" class="reveal text-3xl font-bold text-center mb-9 mt-20">Moisturizer</h1>
    <div class="reveal grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 max-w-120 mx-auto mb-16">
 
   <div class="item reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -125,7 +125,8 @@
   data-title="SUBLIMAGE LA CREME"
   data-description="Offers regenerating and anti-aging benefits. Ideal for dry skin, this rich, enveloping formula addresses the appearance of all youth parameters."
   data-price="$473"
-  data-img="moist 1.avif">
+  data-img="moist 1.avif"
+  onclick="viewProduct(this)">
 <div class="item bg-white-200 h-40 rounded mb-4 overflow-hidden">
   <img src="moist 1.avif" class="h-full w-full object-cover rounded" />
 </div>
@@ -139,9 +140,17 @@
 
 
   <div class="item reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105">
-  <div class="item bg-white-200 h-40 rounded mb-4 overflow-hidden" onclick="viewProduct(this)">
-    <img src="moist 1.avif" class="h-full w-full object-cover rounded" />
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+      data-id="sublimage-la-creme"
+      data-title="SUBLIMAGE LA CREME"
+      data-description="An exquisite face cream that helps improve the essential qualities of beautiful skin: firmness, radiance and hydration. With continued use, dark spots appear visibly diminished and skin looks smooth and even, glowing like never before."
+      data-price="$473"
+      data-img="moist 2.avif"
+      onclick="viewProduct(this)
+      ">
+
+  <div class="item bg-white-200 h-40 rounded mb-4 overflow-hidden"> 
+    <img src="moist 2.avif" class="h-full w-full object-cover rounded" />
   </div>
   <h3 class="item-name text-lg font-semibold" onclick="viewProduct(this)">SUBLIMAGE LA CREME</h3>
   <div class="item-about text-black-100 font-light">Ultimate Cream</div>
