@@ -1298,34 +1298,45 @@ onclick="viewProduct(this)">
 
 
 
-    function addToBag(button) {
-      event.stopPropagation();
+    function addToBag(buttonElement, event) {
+  event.stopPropagation(); // Prevent parent viewProduct from triggering
 
-  const item = button.closest('.item');
-  const itemImage = item.querySelector('img').src;
-  const itemName = item.querySelector('.item-name').innerText;
-const itemAbout = item.querySelector('.item-about').innerText;
-  const itemPrice = item.querySelector('.item-price').innerText;
+  const itemElement = buttonElement.closest('.item');
+  const title = itemElement.dataset.title;
+  const description = itemElement.dataset.description;
+  const price = itemElement.dataset.price;
+  const image = itemElement.dataset.img;
 
-  const cartItem = {
-  image: itemImage,
-  name: itemName,
-  about: itemAbout,
-  price: itemPrice
-};
+  const newItem = { name: title, about: description, price: price, image: image };
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const index = cart.findIndex(item => item.name === newItem.name);
 
-  // Optional: prevent duplicate
-  const exists = cart.find(i => i.name === cartItem.name);
-  if (!exists) {
-    cart.push(cartItem);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert("Added to bag!");
+  if (index !== -1) {
+    // If item already exists, increase its quantity
+    cart[index].quantity = (cart[index].quantity || 1) + 1;
   } else {
-    alert("Item already in bag.");
+    // Add new item with quantity 1
+    newItem.quantity = 1;
+    cart.push(newItem);
   }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert('Item added to cart!');
 }
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.length;
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+      cartCountElement.textContent = count;
+      cartCountElement.style.display = count > 0 ? 'flex' : 'none';
+    }
+  }
+
+  // Run on page load
+  window.addEventListener('DOMContentLoaded', updateCartCount);
 
 
 
@@ -1371,20 +1382,7 @@ const itemAbout = item.querySelector('.item-about').innerText;
   };
 
 
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const count = cart.length;
-    const cartCountElement = document.getElementById('cartCount');
-    if (cartCountElement) {
-      cartCountElement.textContent = count;
-      cartCountElement.style.display = count > 0 ? 'flex' : 'none';
-    }
-  }
-
-  // Run on page load
-  window.addEventListener('DOMContentLoaded', updateCartCount);
-
-
+ 
   </script> 
 
  
