@@ -16,23 +16,27 @@
 </head>
 <body>
     
-  <nav class="flex justify-center space-x-4
-  fixed top-0 left-0 w-full bg-white shadow-md z-50
-  ">
-    <a href="index.html" class="flex items-center">
-      <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto" />
-    </a>
-    <a href="index.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:md-gray-400 hover:text-gray-900">
-      Home
-    </a>
-    <a href="category.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:md-gray-400 hover:text-gray-900">
-      Categories
-    </a>
-    <a href="Runway.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:md-gray-400 hover:text-gray-900">
-      Runway
-    </a>
-    
-   
+  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <div class="flex justify-between items-center px-4 py-3">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto" />
+      </a>
+  
+      <!-- Hamburger Toggle Button (mobile only) -->
+      <button id="menuToggle" class="md:hidden text-gray-700 focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  
+    <!-- Nav Links -->
+    <div id="menu" class="hidden flex-col items-start md:flex md:flex-row md:justify-center md:space-x-4 px-4 pb-4 md:pb-0">
+      <a href="index.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Home</a>
+      <a href="index.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Categories</a>
+      <a href="runway.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Runway</a>
+    </div>
   </nav>
 
   <!-- Loader -->
@@ -132,6 +136,12 @@
 
 
 <script>
+
+document.getElementById("menuToggle").addEventListener("click", function () {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("hidden");
+  });
+
   document.getElementById('loader').classList.remove('hidden');
 
   setTimeout(() => {

@@ -14,52 +14,95 @@
 </head>
 <body class="h-full">
    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <nav class="flex justify-center space-x-4">
-      <a href="index.html" class="flex items-center">
-        <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto" />
-      </a>
-    <div class="flex justify-center space-x-4 py-3">
-      <div class="relative">
-        <button id="dropdownToggle" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center space-x-1 focus:outline-none">
-          <span>Categories</span>
-          <svg id="arrowIcon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-      <div id="dropdownMenu" class="hidden absolute bg-white shadow-lg mt-2 rounded-md w-40 
-      text-left max-h-60 overflow-y-auto z-50">
-        <a href="#moisturizer" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="moist 1.avif" alt="Moisturizer" class="w-5 h-5"> Moisturizer
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+          <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto">
         </a>
-        <a href="#toner" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="lotion 1.avif" alt="Toner" class="w-5 h-5"> Toner
-        </a>
-        <a href="#bodycare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="bodycream 1.avif" alt="Body Care" class="w-5 h-5"> Body Care
-        </a>
-        <a href="#eyecare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="eye 6.avif" alt="Eye Care" class="w-5 h-5"> Eye Care
-        </a>
-        <a href="#oils" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="oil 3.avif" alt="Facial Oils" class="w-5 h-5"> Facial Oils
-        </a>
-        <a href="#serums" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="serum 3.avif" alt="Serums" class="w-5 h-5"> Serums
-        </a>
-        <a href="#jewelry" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="jewel 9.webp" alt="Jewelry" class="w-5 h-5"> Jewelry
-        </a>
-        <a href="#watches" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-1">
-          <img src="watch 9.webp" alt="Watches" class="w-5 h-5"> Watches
-        </a>
+  
+        <!-- Toggle button (mobile) -->
+        <div class="lg:hidden">
+          <button id="mobileMenuToggle" class="text-gray-600 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="hamburger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+  
+        <!-- Menu items -->
+        <div id="menuItems" class="hidden lg:flex space-x-6 items-center">
+          <!-- Dropdown -->
+          <div class="relative group">
+            <button id="dropdownToggle" class="flex items-center text-gray-700 hover:text-black font-medium focus:outline-none">
+              <span>Categories</span>
+              <svg class="ml-1 h-4 w-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownMenu"
+              class="hidden absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg z-50 group-hover:block">
+              <!-- List Items with Icons -->
+              <a href="#moisturizer" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="moist 1.avif" alt="" class="w-5 h-5"> Moisturizer
+              </a>
+              <a href="#toner" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="lotion 1.avif" alt="" class="w-5 h-5"> Toner
+              </a>
+              <a href="#bodycare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="bodycream 1.avif" alt="" class="w-5 h-5"> Body Care
+              </a>
+              <a href="#eyecare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="eye 6.avif" alt="" class="w-5 h-5"> Eye Care
+              </a>
+              <a href="#oils" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="oil 3.avif" alt="" class="w-5 h-5"> Facial Oils
+              </a>
+              <a href="#serums" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="serum 3.avif" alt="" class="w-5 h-5"> Serums
+              </a>
+              <a href="#jewelry" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="jewel 9.webp" alt="" class="w-5 h-5"> Jewelry
+              </a>
+              <a href="#watches" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+                <img src="watch 9.webp" alt="" class="w-5 h-5"> Watches
+              </a>
+            </div>
+          </div>
+  
+          <a href="index.html" class="text-gray-700 hover:text-black font-medium">Home</a>
+          <a href="Runway.html" class="text-gray-700 hover:text-black font-medium">Runway</a>
+        </div>
       </div>
-      <a href="index.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900">Home</a>
-      <a href="Runway.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900">Runway</a>
     </div>
-    </nav>
-   </nav>
+  
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden px-4 pt-2 pb-4 space-y-2">
+      <a href="index.html" class="block text-gray-700 hover:text-black">Home</a>
+      <a href="Runway.html" class="block text-gray-700 hover:text-black">Runway</a>
+  
+      <!-- Mobile Dropdown -->
+      <details class="text-gray-700">
+        <summary class="cursor-pointer py-2 font-medium">Categories</summary>
+        <div class="space-y-1 pl-4">
+          <a href="#moisturizer" class="block text-sm flex items-center gap-2 py-1"><img src="moist 1.avif" class="w-5 h-5"> Moisturizer</a>
+          <a href="#toner" class="block text-sm flex items-center gap-2 py-1"><img src="lotion 1.avif" class="w-5 h-5"> Toner</a>
+          <a href="#bodycare" class="block text-sm flex items-center gap-2 py-1"><img src="bodycream 1.avif" class="w-5 h-5"> Body Care</a>
+          <a href="#eyecare" class="block text-sm flex items-center gap-2 py-1"><img src="eye 6.avif" class="w-5 h-5"> Eye Care</a>
+          <a href="#oils" class="block text-sm flex items-center gap-2 py-1"><img src="oil 3.avif" class="w-5 h-5"> Oils</a>
+          <a href="#serums" class="block text-sm flex items-center gap-2 py-1"><img src="serum 3.avif" class="w-5 h-5"> Serums</a>
+          <a href="#jewelry" class="block text-sm flex items-center gap-2 py-1"><img src="jewel 9.webp" class="w-5 h-5"> Jewelry</a>
+          <a href="#watches" class="block text-sm flex items-center gap-2 py-1"><img src="watch 9.webp" class="w-5 h-5"> Watches</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  
     
-   <h1 id="toner" class="reveal text-3xl font-bold text-center mt-15">Moisturizer</h1>
+   <h1 id="toner" class="reveal text-3xl font-bold text-center mb-9 mt-20">Moisturizer</h1>
 <div class="reveal grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -1049,7 +1092,12 @@
       }
     });
 
+    const toggleBtn = document.getElementById("mobileMenuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
+  toggleBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
     
     ScrollReveal().reveal('.reveal', {
   origin: 'bottom',
