@@ -83,6 +83,15 @@
     <div id="mobileMenu" class="lg:hidden hidden px-4 pt-2 pb-4 space-y-2">
       <a href="index.html" class="block text-gray-700 hover:text-black">Home</a>
       <a href="Runway.html" class="block text-gray-700 hover:text-black">Runway</a>
+      <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6h15l-1.5 9h-13z" />
+          <circle cx="9" cy="20" r="1" />
+          <circle cx="18" cy="20" r="1" />
+        </svg>
+        Cart
+      </a>
+      
   
       <!-- Mobile Dropdown -->
       <details class="text-gray-700">
@@ -106,36 +115,37 @@
 <div class="reveal grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
-      data-id="sublimage-la-creme"
-      data-title="SUBLIMAGE LA CREME"
-      data-description="Offers regenerating and anti-aging benefits. Ideal for dry skin, this rich, enveloping formula addresses the appearance of all youth parameters."
-      data-price="$473"
-      data-img="moist 1.avif"
-      onclick="viewProduct(this)">
-    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
-      <img src="moist 1.avif" class="h-full w-full object-cover rounded" />
-    </div>
-    <h3 class="text-lg font-semibold">SUBLIMAGE LA CREME</h3>
-    <div class="text-black-100 font-light">Ultimate Cream</div>
-    <div class="text-black-600 font-bold">$473</div>
-  </div>
+  transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
+  data-id="sublimage-la-creme"
+  data-title="SUBLIMAGE LA CREME"
+  data-description="Offers regenerating and anti-aging benefits. Ideal for dry skin, this rich, enveloping formula addresses the appearance of all youth parameters."
+  data-price="$473"
+  data-img="moist 1.avif">
+<div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
+  <img src="moist 1.avif" class="h-full w-full object-cover rounded" />
+</div>
+<h3 class="text-lg font-semibold">SUBLIMAGE LA CREME</h3>
+<div class="text-black-100 font-light">Ultimate Cream</div>
+<div class="text-black-600 font-bold">$473</div>
+<button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+  ADD TO BAG
+</button>
+</div>
+
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
-      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
-      data-id="n°1-de-chanel"
-      data-title="N°1 DE CHANEL"
-      data-description="Smooths the look of wrinkles and delivers comfort and radiance, all while protecting against environmental aggressors and cold winter weather."
-      data-price="$120"
-      data-img="moist 2.avif"
-      onclick="viewProduct(this)">
-    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
-      <img src="moist 2.avif" class="h-full w-full object-cover rounded" />
-    </div>
-    <h3 class="text-lg font-semibold">N°1 DE CHANEL</h3>
-    <div class="text-black-100 font-light">Smooths Nourishes Protects</div>
-    <div class="text-black-600 font-bold">$120</div>
+      transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105">
+  <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden" onclick="viewProduct(this)">
+    <img src="moist 1.avif" class="h-full w-full object-cover rounded" />
   </div>
+  <h3 class="text-lg font-semibold" onclick="viewProduct(this)">SUBLIMAGE LA CREME</h3>
+  <div class="text-black-100 font-light">Ultimate Cream</div>
+  <div class="text-black-600 font-bold">$473</div>
+  <button 
+    class="mt-2 bg-black text-white px-4 py-1 rounded hover:bg-gray-800" 
+    onclick="addToCart(this)">ADD TO BAG</button>
+</div>
+
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
@@ -151,6 +161,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LA CREME</h3>
     <div class="text-black-100 font-light">Ultimate Regeneration and Brightening Cream</div>
     <div class="text-black-600 font-bold">$465</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -168,6 +181,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LA CREME FINE</h3>
     <div class="text-black-100 font-light">Ultimate Cream</div>
     <div class="text-black-600 font-bold">$400</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -184,6 +200,9 @@
     <h3 class="text-lg font-semibold">HYDRA BEAUTY MICRO CREME</h3>
     <div class="text-black-100 font-light">Fortifying Replenishing Hydration</div>
     <div class="text-black-600 font-bold">$150</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -200,6 +219,9 @@
     <h3 class="text-lg font-semibold">L’EXTRAIT POMMADE OR</h3>
     <div class="text-black-100 font-light">Golden Radiance Balm</div>
     <div class="text-black-600 font-bold">$789</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
 </div>
@@ -224,6 +246,9 @@
        <h3 class="text-lg font-semibold">N°1 DE CHANEL</h3>
        <div class="text-black-100 font-light">Plumps – Evens – Illuminates</div>
        <div class="text-black-600 font-bold">$145</div>
+       <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
      </div>
    
      <!-- Product 2 -->
@@ -240,6 +265,9 @@
        <h3 class="text-lg font-semibold">N°1 DE CHANEL Camellia</h3>
        <div class="text-black-100 font-light">Energizes – Refines – Plumps</div>
        <div class="text-black-600 font-bold">$70</div>
+       <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
      </div>
    
      <!-- Product 3 -->
@@ -256,6 +284,9 @@
        <h3 class="text-lg font-semibold">SUBLIMAGE L’EXTRAIT</h3>
        <div class="text-black-100 font-light">Lotion</div>
        <div class="text-black-600 font-bold">$555</div>
+       <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
      </div>
    
      <!-- Product 4 -->
@@ -272,6 +303,9 @@
        <h3 class="text-lg font-semibold">LUMIERE EXFOLIANTE</h3>
        <div class="text-black-100 font-light">Ultimate Lotion – Exfoliates and Illuminates</div>
        <div class="text-black-600 font-bold">$250</div>
+       <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
      </div>
    
      <!-- Product 5 -->
@@ -288,6 +322,9 @@
        <h3 class="text-lg font-semibold">Micro Liquid Essence</h3>
        <div class="text-black-100 font-light">Refining Energizing Hydration</div>
        <div class="text-black-600 font-bold">$200</div>
+       <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
      </div>
    
      <!-- Product 6 -->
@@ -304,6 +341,9 @@
        <h3 class="text-lg font-semibold">ECLAT PREMIER BRIGHT MILKY</h3>
        <div class="text-black-100 font-light">Brightening and Unifying Milk-to-Water Essence</div>
        <div class="text-black-600 font-bold">$163</div>
+       <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
      </div>
    
    </div>
@@ -330,6 +370,9 @@
       <h3 class="text-lg font-semibold">LA CREME MAIN</h3>
       <div class="text-black-100 font-light">Nourish – Soften – Illuminate</div>
       <div class="text-black-600 font-bold">$63</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product 2 -->
@@ -348,6 +391,9 @@
       <h3 class="text-lg font-semibold">LA CRÈME MAIN TEXTURE RICHE</h3>
       <div class="text-black-100 font-light">Nourish – Protect – Illuminate</div>
       <div class="text-black-600 font-bold">$62</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product 3 -->
@@ -366,6 +412,9 @@
       <h3 class="text-lg font-semibold">LE LIFT LA CREME MAIN</h3>
       <div class="text-black-100 font-light">Smooths – Evens – Replenishes</div>
       <div class="text-black-600 font-bold">$73</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product 4 -->
@@ -384,6 +433,9 @@
       <h3 class="text-lg font-semibold">Hydra Beauty Cream</h3>
       <div class="text-black-100 font-light">Hydration</div>
       <div class="text-black-600 font-bold">$90</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product 5 -->
@@ -402,6 +454,9 @@
       <h3 class="text-lg font-semibold">Hydra Beauty Micro Cream</h3>
       <div class="text-black-100 font-light">Nourishes</div>
       <div class="text-black-600 font-bold">$200</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product 6 -->
@@ -420,6 +475,9 @@
       <h3 class="text-lg font-semibold">Caramellia Repair Cream</h3>
       <div class="text-black-100 font-light">Repairs, Nourishes</div>
       <div class="text-black-600 font-bold">$63</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
   </div>
@@ -443,6 +501,9 @@
     <h3 class="text-lg font-semibold">LE SERUM YEUX</h3>
     <div class="text-black-100 font-light">Ultimate Eye Serum – Regenerates and Illuminates</div>
     <div class="text-black-600 font-bold">$353</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
       <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -460,6 +521,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE CREAM</h3>
     <div class="text-black-100 font-light">Anti-Dark Circles – Anti-Puffiness – Smooths</div>
     <div class="text-black-600 font-bold">$67</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
       <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -478,6 +542,9 @@
     <h3 class="text-lg font-semibold">LE LIFT SOIN LEVRES ET CONTOURS</h3>
     <div class="text-black-100 font-light">Smoothing and Firming Lip and Contour Care</div>
     <div class="text-black-600 font-bold">$55</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
       <div class="reveal product cursor-pointer transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -496,6 +563,9 @@
     <h3 class="text-lg font-semibold">LE LIFT CREME YEUX</h3>
     <div class="text-black-100 font-light">Smooths – Firms</div>
     <div class="text-black-600 font-bold">$90</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
       <div class="reveal product cursor-pointer  transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -514,6 +584,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM REFILL</h3>
     <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
     <div class="text-black-600 font-bold">$200</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
       <div class="reveal product cursor-pointer  transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
@@ -532,6 +605,9 @@
       <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM </h3>
       <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
       <div class="text-black-600 font-bold">$93</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   </div>
   
@@ -555,6 +631,9 @@
       <h3 class="text-lg font-semibold">LE BLANC HUILE</h3>
       <div class="text-gray-500 font-light">Healthy Light Creator Oil</div>
       <div class="text-black font-bold">$130</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product Card 2 -->
@@ -572,6 +651,9 @@
       <h3 class="text-lg font-semibold">L’HUILE ORIENT</h3>
       <div class="text-gray-500 font-light">Body Massage Oil</div>
       <div class="text-black font-bold">$109</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product Card 3 -->
@@ -589,6 +671,9 @@
       <h3 class="text-lg font-semibold">L’HUILE JASMIN</h3>
       <div class="text-gray-500 font-light">Body Massage Oil</div>
       <div class="text-black font-bold">$230</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product Card 4 -->
@@ -606,6 +691,9 @@
       <h3 class="text-lg font-semibold">HUILE DE JASMIN</h3>
       <div class="text-gray-500 font-light">Revitalizing Facial Oil With Jasmine Extract</div>
       <div class="text-black font-bold">$150</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product Card 5 -->
@@ -623,6 +711,9 @@
       <h3 class="text-lg font-semibold">L’HUILE VANILLE</h3>
       <div class="text-gray-500 font-light">Body Massage Oil</div>
       <div class="text-black font-bold">$130</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
     <!-- Product Card 6 -->
@@ -640,6 +731,9 @@
       <h3 class="text-lg font-semibold">L’HUILE ROSE</h3>
       <div class="text-gray-500 font-light">Body Massage Oil</div>
       <div class="text-black font-bold">$169</div>
+      <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+        ADD TO BAG
+      </button>
     </div>
   
   </div>
@@ -667,6 +761,9 @@
     <h3 class="text-lg font-semibold">L’ESSENCE LUMIÈRE</h3>
     <div class="text-black-100 font-light">Ultimate Light-Revealing Concentrate</div>
     <div class="text-black-600 font-bold">$510</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 2 -->
@@ -685,6 +782,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LE SERUM</h3>
     <div class="text-black-100 font-light">Ultimate Serum – Regenerates and Redefines</div>
     <div class="text-black-600 font-bold">$550</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 3 -->
@@ -703,6 +803,9 @@
     <h3 class="text-lg font-semibold">HYDRA BEAUTY MICRO SERUM</h3>
     <div class="text-black-100 font-light">Intense Replenishing Hydration</div>
     <div class="text-black-600 font-bold">$50</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 4 -->
@@ -721,6 +824,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
     <div class="text-black-600 font-bold">$150</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 5 -->
@@ -739,6 +845,9 @@
     <h3 class="text-lg font-semibold">LE LIFT SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Nourish – Restores Serum</div>
     <div class="text-black-600 font-bold">$250</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 6 -->
@@ -757,6 +866,9 @@
     <h3 class="text-lg font-semibold">LE BLANC SÉRUM</h3>
     <div class="text-black-100 font-light">Brightening – Unifying – Retexturizing</div>
     <div class="text-black-600 font-bold">$200</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 </div>
 
@@ -781,6 +893,9 @@
     <h3 class="text-lg font-semibold">L’ESSENCE LUMIÈRE</h3>
     <div class="text-black-100 font-light">Ultimate Light-Revealing Concentrate</div>
     <div class="text-black-600 font-bold">$510</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 2 -->
@@ -799,6 +914,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LE SERUM</h3>
     <div class="text-black-100 font-light">Ultimate Serum – Regenerates and Redefines</div>
     <div class="text-black-600 font-bold">$550</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 3 -->
@@ -817,6 +935,9 @@
     <h3 class="text-lg font-semibold">HYDRA BEAUTY MICRO SERUM</h3>
     <div class="text-black-100 font-light">Intense Replenishing Hydration</div>
     <div class="text-black-600 font-bold">$50</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 4 -->
@@ -835,6 +956,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
     <div class="text-black-600 font-bold">$150</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 5 -->
@@ -853,6 +977,9 @@
     <h3 class="text-lg font-semibold">LE LIFT SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Nourish – Restores Serum</div>
     <div class="text-black-600 font-bold">$250</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 6 -->
@@ -871,6 +998,9 @@
     <h3 class="text-lg font-semibold">LE BLANC SÉRUM</h3>
     <div class="text-black-100 font-light">Brightening – Unifying – Retexturizing</div>
     <div class="text-black-600 font-bold">$200</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
 </div>
@@ -896,6 +1026,9 @@
     <h3 class="text-lg font-semibold">L’ESSENCE LUMIÈRE</h3>
     <div class="text-black-100 font-light">Ultimate Light-Revealing Concentrate</div>
     <div class="text-black-600 font-bold">$510</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 2 -->
@@ -914,6 +1047,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LE SERUM</h3>
     <div class="text-black-100 font-light">Ultimate Serum – Regenerates and Redefines</div>
     <div class="text-black-600 font-bold">$550</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 3 -->
@@ -932,6 +1068,9 @@
     <h3 class="text-lg font-semibold">HYDRA BEAUTY MICRO SERUM</h3>
     <div class="text-black-100 font-light">Intense Replenishing Hydration</div>
     <div class="text-black-600 font-bold">$50</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 4 -->
@@ -950,6 +1089,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
     <div class="text-black-600 font-bold">$150</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 5 -->
@@ -968,6 +1110,9 @@
     <h3 class="text-lg font-semibold">LE LIFT SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Nourish – Restores Serum</div>
     <div class="text-black-600 font-bold">$250</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 6 -->
@@ -986,6 +1131,9 @@
     <h3 class="text-lg font-semibold">LE BLANC SÉRUM</h3>
     <div class="text-black-100 font-light">Brightening – Unifying – Retexturizing</div>
     <div class="text-black-600 font-bold">$200</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
 </div>
@@ -1084,6 +1232,36 @@
       arrow.classList.toggle("rotate-180");
     });
 
+
+
+    function addToBag(button) {
+  const item = button.closest('.item');
+  const itemImage = item.querySelector('img').src;
+  const itemName = item.querySelector('.item-name').innerText;
+  const itemAbout = item.querySelector('.item-about').innerText;
+  const itemPrice = item.querySelector('.item-price').innerText;
+
+  const cartItem = {
+    itemImage,
+    itemName,
+    itemAbout,
+    itemPrice
+  };
+
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const existingItem = cart.find(i => i.itemName === cartItem.itemName);
+  if (!existingItem) {
+    cart.push(cartItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Added to bag!");
+  } else {
+    alert("Item already in bag");
+  }
+}
+
+
+
     // Close dropdown when clicking outside
     window.addEventListener("click", () => {
       if (!menu.classList.contains("hidden")) {
@@ -1123,7 +1301,7 @@
 
     // Navigate to product page
     window.location.href = 'product.html?id=' + product.id;
-  }
+  };
 
 
   </script> 

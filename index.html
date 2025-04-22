@@ -36,6 +36,15 @@
       <a href="/" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Home</a>
       <a href="category.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Categories</a>
       <a href="runway.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Runway</a>
+      <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6h15l-1.5 9h-13z" />
+          <circle cx="9" cy="20" r="1" />
+          <circle cx="18" cy="20" r="1" />
+        </svg>
+        Cart
+      </a>
+      
     </div>
   </nav>
   
@@ -252,7 +261,7 @@
 <div class=" grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-120 mx-auto mb-16">
 
   <!-- Product 1 -->
-  <div class=" product cursor-pointer  transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
+  <div class=" item product cursor-pointer  transition-transform border border-gray-300 rounded-lg p-4 text-center shadow hover:shadow-md 
       transition delay-150 duration-700 ease-in-out hover:-translate-y-1 hover:scale-105"
       data-id="l'essence-lumiere"
       data-title="L’ESSENCE LUMIÈRE"
@@ -262,12 +271,16 @@
       data-img="eyewear 1.webp"
       onclick="viewProduct(this)">
     
-    <div class="bg-white-200 h-40 rounded mb-4 overflow-hidden">
-      <img src="eyewear 1.webp" class="h-full w-full object-cover rounded" />
+    <div  class=" item bg-white-200 h-40 rounded mb-4 overflow-hidden">
+      <img src="eyewear 1.webp" class="item-image h-full w-full object-cover rounded" />
     </div>
-    <h3 class="text-lg font-semibold">L’ESSENCE LUMIÈRE</h3>
-    <div class="text-black-100 font-light">Ultimate Light-ing Concentrate</div>
-    <div class="text-black-600 font-bold">$510</div>
+    <h3 class="item-name text-lg font-semibold">L’ESSENCE LUMIÈRE</h3>
+    <div class="item-about text-black-100 font-light">Ultimate Light-ing Concentrate</div>
+    <div class="item-price text-black-600 font-bold">$510</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white
+     underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 2 -->
@@ -286,6 +299,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LE SERUM</h3>
     <div class="text-black-100 font-light">Ultimate Serum – Regenerates and Redefines</div>
     <div class="text-black-600 font-bold">$550</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 3 -->
@@ -304,6 +320,9 @@
     <h3 class="text-lg font-semibold">HYDRA BEAUTY MICRO SERUM</h3>
     <div class="text-black-100 font-light">Intense Replenishing Hydration</div>
     <div class="text-black-600 font-bold">$50</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 4 -->
@@ -322,6 +341,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
     <div class="text-black-600 font-bold">$150</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 5 -->
@@ -340,6 +362,9 @@
     <h3 class="text-lg font-semibold">LE LIFT SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Nourish – Restores Serum</div>
     <div class="text-black-600 font-bold">$250</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 6 -->
@@ -358,6 +383,9 @@
     <h3 class="text-lg font-semibold">LE BLANC SÉRUM</h3>
     <div class="text-black-100 font-light">Brightening – Unifying – Retexturizing</div>
     <div class="text-black-600 font-bold">$200</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 </div>
 
@@ -381,6 +409,9 @@
     <h3 class="text-lg font-semibold">L’ESSENCE LUMIÈRE</h3>
     <div class="text-black-100 font-light">Ultimate Light-ing Concentrate</div>
     <div class="text-black-600 font-bold">$510</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 2 -->
@@ -399,6 +430,9 @@
     <h3 class="text-lg font-semibold">SUBLIMAGE LE SERUM</h3>
     <div class="text-black-100 font-light">Ultimate Serum – Regenerates and Redefines</div>
     <div class="text-black-600 font-bold">$550</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 3 -->
@@ -417,6 +451,9 @@
     <h3 class="text-lg font-semibold">HYDRA BEAUTY MICRO SERUM</h3>
     <div class="text-black-100 font-light">Intense Replenishing Hydration</div>
     <div class="text-black-600 font-bold">$50</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 4 -->
@@ -435,6 +472,9 @@
     <h3 class="text-lg font-semibold">REVITALIZING EYE SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Restores – Refreshes</div>
     <div class="text-black-600 font-bold">$150</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 5 -->
@@ -453,6 +493,9 @@
     <h3 class="text-lg font-semibold">LE LIFT SERUM</h3>
     <div class="text-black-100 font-light">Smooths – Nourish – Restores Serum</div>
     <div class="text-black-600 font-bold">$250</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
   <!-- Product 6 -->
@@ -471,6 +514,9 @@
     <h3 class="text-lg font-semibold">LE BLANC SÉRUM</h3>
     <div class="text-black-100 font-light">Brightening – Unifying – Retexturizing</div>
     <div class="text-black-600 font-bold">$200</div>
+    <button onclick="addToBag(this)" class="mt-2 bg-white underline text-black font-bold px-4 py-1 rounded">
+      ADD TO BAG
+    </button>
   </div>
 
 </div>
@@ -562,7 +608,7 @@ document.getElementById("menuToggle").addEventListener("click", function () {
     menu.classList.toggle("hidden");
   });
 
-    function viewProduct(element) {
+function viewProduct(element) {
     const product = {
       id: element.dataset.id,
       title: element.dataset.title,
@@ -571,12 +617,43 @@ document.getElementById("menuToggle").addEventListener("click", function () {
       img: element.dataset.img
     };
 
+    
     // Save to localStorage
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
+    localStorage.setItem('selectedProduct', JSON.stringify(item));
 
     // Navigate to product page
     window.location.href = 'product.html?id=' + product.id;
   }
+
+    function addToBag(button) {
+  const item = button.closest('.item');
+  const itemImage = item.querySelector('img').src;
+  const itemName = item.querySelector('.item-name').innerText;
+const itemAbout = item.querySelector('.item-about').innerText;
+  const itemPrice = item.querySelector('.item-price').innerText;
+
+  const cartItem = {
+    image: itemImage,
+    name: itemName,
+    about: itemAbout,
+    price: itemPrice
+  };
+
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Optional: prevent duplicate
+  const exists = cart.find(i => i.name === cartItem.name);
+  if (!exists) {
+    cart.push(cartItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Added to bag!");
+  } else {
+    alert("Item already in bag.");
+  }
+}
+
+
+
 
    </script>   
     
