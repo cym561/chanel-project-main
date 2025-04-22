@@ -1238,25 +1238,26 @@
   const item = button.closest('.item');
   const itemImage = item.querySelector('img').src;
   const itemName = item.querySelector('.item-name').innerText;
-  const itemAbout = item.querySelector('.item-about').innerText;
+const itemAbout = item.querySelector('.item-about').innerText;
   const itemPrice = item.querySelector('.item-price').innerText;
 
   const cartItem = {
-    itemImage,
-    itemName,
-    itemAbout,
-    itemPrice
-  };
+  image: itemImage,
+  name: itemName,
+  about: itemAbout,
+  price: itemPrice
+};
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  const existingItem = cart.find(i => i.itemName === cartItem.itemName);
-  if (!existingItem) {
+  // Optional: prevent duplicate
+  const exists = cart.find(i => i.name === cartItem.name);
+  if (!exists) {
     cart.push(cartItem);
     localStorage.setItem('cart', JSON.stringify(cart));
     alert("Added to bag!");
   } else {
-    alert("Item already in bag");
+    alert("Item already in bag.");
   }
 }
 
