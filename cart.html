@@ -16,50 +16,85 @@
     <!-- Cart items will appear here -->
   </main>
   
-  <script>
-    function loadCart() {
-      const container = document.getElementById('cartContainer');
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
   
-      if (cart.length === 0) {
-        container.innerHTML = '<p class="text-center mt-10 text-gray-600">Your bag is empty.</p>';
-        return;
-      }
-  
-      let total = 0;
-      cart.forEach((item, index) => {
-        const price = parseFloat(item.price.replace('$', '')) || 0;
-        total += price;
-  
-        const card = document.createElement('div');
-        card.className = "flex items-center border p-4 mb-4 bg-white rounded-lg shadow";
-        card.innerHTML = `
-          <img src="${item.image}" class="w-20 h-20 object-cover rounded mr-4" />
-          <div class="flex-grow">
-            <h3 class="font-bold">${item.name}</h3>
-            <p class="text-sm text-gray-600">${item.about}</p>
-            <p class="text-black font-semibold">${item.price}</p>
+   <script>
+  function loadCart() {
+    const container = document.getElementById('cartContainer');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+      container.innerHTML = '<p class="text-center mt-10 text-gray-600">Your bag is empty.</p>';
+      return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const price = parseFloat(item.price.replace('$', '')) || 0;
+      const quantity = item.quantity || 1;
+      total += price * quantity;
+
+      const card = document.createElement('div');
+      card.className = "flex items-center border p-4 mb-4 bg-white rounded-lg shadow justify-between";
+
+      card.innerHTML = `
+        <img src="${item.image}" class="w-20 h-20 object-cover rounded mr-4" />
+        <div class="flex-grow ml-4">
+          <h3 class="font-bold">${item.name}</h3>
+          <p class="text-sm text-gray-600">${item.about}</p>
+          <p class="text-black font-semibold">${item.price}</p>
+          <div class="flex items-center mt-2">
+            <button onclick="changeQuantity(${index}, -1)" class="px-2 py-1 border rounded text-lg">−</button>
+            <span class="mx-3">${quantity}</span>
+            <button onclick="changeQuantity(${index}, 1)" class="px-2 py-1 border rounded text-lg">+</button>
           </div>
-          <button onclick="removeItem(${index})" class="text-red-600 hover:underline ml-4">Remove</button>
-        `;
-        container.appendChild(card);
-      });
-  
-      const totalDiv = document.createElement('div');
-      totalDiv.className = "text-right font-bold text-lg mt-4";
-      totalDiv.innerHTML = `Total: $${total.toFixed(2)}`;
-      container.appendChild(totalDiv);
-    }
-  
-    function removeItem(index) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      location.reload();
-    }
-  
-    window.onload = loadCart;
-  </script>
+        </div>
+        <button onclick="removeItem(${index})" class="text-red-600 hover:underline ml-4">Remove</button>
+      `;
+      container.appendChild(card);
+    });
+
+    const totalDiv = document.createElement('div');
+    totalDiv.className = "text-right font-bold text-lg mt-4";
+    totalDiv.innerHTML = `Total: $${total.toFixed(2)}`;
+    container.appendChild(totalDiv);
+  }
+
+  function changeQuantity(index, delta) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (!cart[index].quantity) cart[index].quantity = 1;
+    cart[index].quantity += delta;
+    if (cart[index].quantity <= 0) cart.splice(index, 1); // remove item if quantity goes to 0
+    localStorage.setItem('cart', JSON.stringify(cart));
+    location.reload();
+  }
+
+  function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    location.reload();
+  }
+
+  // When adding to cart (not shown here), make sure you handle quantity:
+  // If the item already exists, increase the quantity instead of duplicating it
+
+  window.onload = loadCart;
+
+  function addToCart(newItem) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const index = cart.findIndex(item => item.name === newItem.name); // use a better unique identifier if available
+  if (index !== -1) {
+    cart[index].quantity = (cart[index].quantity || 1) + 1;
+  } else {
+    newItem.quantity = 1;
+    cart.push(newItem);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+</script>
+
   
 </body>
 </html>
