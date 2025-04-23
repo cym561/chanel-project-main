@@ -655,6 +655,14 @@ document.getElementById("menuToggle").addEventListener("click", function () {
     menu.classList.toggle("hidden");
   });
 
+  const toggleBtn = document.getElementById("mobileMenuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  toggleBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+
   function viewProduct(element) {
     const product = {
       id: element.dataset.id,
@@ -721,12 +729,7 @@ function updateCartCount() {
       }
     });
 
-    const toggleBtn = document.getElementById("mobileMenuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  toggleBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
+ 
     
 
 
