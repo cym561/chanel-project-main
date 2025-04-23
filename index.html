@@ -32,25 +32,26 @@
     </div>
   
     <!-- Nav Links -->
-    <div id="mobileMenu" class="lg:hidden hidden px-4 pt-2 pb-4 space-y-2">
-      <a href="index.html" class="block text-gray-700 hover:text-black">Home</a>
-      <a href="category.html" class="block text-gray-700 hover:text-black">Categories</a>
-      <a href="Runway.html" class="block text-gray-700 hover:text-black">Runway</a>
-      <!-- Cart Icon with Badge -->
-<div class="relative">
-  <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M6 6h15l-1.5 9h-13z" />
-      <circle cx="9" cy="20" r="1" />
-      <circle cx="18" cy="20" r="1" />
-    </svg>
-    Cart
-  </a>
-  <span id="cartCount" class="absolute top-1 -left-2 bg-orange-600 text-white 
+    <div id="menu" class="hidden flex-col items-start md:flex md:flex-row md:justify-center md:space-x-4 px-4 pb-4 md:pb-0">
+      <a href="/" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Home</a>
+      <a href="category.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Categories</a>
+      <a href="runway.html" class="block font-m px-3 py-2 text-gray-700 hover:text-black">Runway</a>
+      <div class="relative">
+        <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 6h15l-1.5 9h-13z" />
+            <circle cx="9" cy="20" r="1" />
+            <circle cx="18" cy="20" r="1" />
+          </svg>
+          Cart
+        </a>
+        <span id="cartCount" class="absolute top-1 -left-2 bg-orange-600 text-white 
   text-xs w-5 h-5 flex items-center justify-center rounded-full">
-    0
-  </span>
-</div>
+          0
+        </span>
+      </div>
+    </div>
+  </nav>
   
   
  
@@ -662,6 +663,7 @@ document.getElementById("menuToggle").addEventListener("click", function () {
   });
 
 
+
   function addToBag(buttonElement, event) {
   event.stopPropagation(); // Prevent parent viewProduct from triggering
 
@@ -703,21 +705,7 @@ function updateCartCount() {
   window.addEventListener('DOMContentLoaded', updateCartCount);
 
 
-  function viewProduct(element) {
-    const product = {
-      id: element.dataset.id,
-      title: element.dataset.title,
-      description: element.dataset.description,
-      price: element.dataset.price,
-      img: element.dataset.img
-    };
 
-    // Save to localStorage
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
-
-    // Navigate to product page
-    window.location.href = 'product.html?id=' + product.id;
-  };
     
 
  
