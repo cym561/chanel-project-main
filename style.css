@@ -1,0 +1,250 @@
+/* General Responsive Styles */
+body {
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for consistent padding */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigation */
+nav {
+  padding: 0.5rem 1rem;
+}
+
+#menu {
+  flex-direction: column;
+  width: 100%;
+  background: white;
+}
+
+#menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+#menuToggle {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  #menu {
+    flex-direction: row;
+    justify-content: center;
+  }
+  #menuToggle {
+    display: none;
+  }
+}
+
+/* Featured Products */
+.m-3.max-w-full.mb-4 > div {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.m-3.max-w-full.mb-4 img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .m-3.max-w-full.mb-4 > div {
+    flex-direction: row;
+    text-align: left;
+  }
+  .m-3.max-w-full.mb-4 img {
+    max-width: 200px;
+  }
+}
+
+/* Shopping Categories Grid */
+.grid.max-w-90 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid.max-w-90 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid.max-w-90 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.grid.max-w-90 img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .grid.max-w-90 img {
+    height: 200px;
+  }
+}
+
+/* The Rising of Chanel Section */
+.md\:flex {
+  flex-direction: column;
+}
+
+.md\:flex img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    flex-direction: row;
+  }
+  .md\:flex img {
+    max-height: 400px;
+    width: 50%;
+  }
+}
+
+/* Skin Care Categories */
+.grid.max-w-90.mb-16 > a > div {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 640px) {
+  .grid.max-w-90.mb-16 > a > div {
+    height: 200px;
+  }
+}
+
+/* Eyewear and Fragrance Sections */
+.grid.max-w-120 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.grid.max-w-120 .item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .grid.max-w-120 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid.max-w-120 .item img {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid.max-w-120 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Typography */
+h1.text-3xl, h1.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  h1.text-3xl, h1.text-2xl {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1.text-3xl {
+    font-size: 2.5rem;
+  }
+}
+
+/* Footer */
+main.text-center {
+  padding: 2rem 1rem;
+}
+
+main.text-center p {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  main.text-center p {
+    font-size: 1rem;
+  }
+}
+
+footer.text-center {
+  padding: 1.5rem 1rem;
+}
+
+footer.text-center p {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  footer.text-center p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Social Links */
+.flex.justify-center.space-x-6 {
+  gap: 1.5rem;
+}
+
+.flex.justify-center.space-x-6 a {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .flex.justify-center.space-x-6 a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Cart Count */
+#cartCount {
+  font-size: 0.75rem;
+  padding: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  #cartCount {
+    font-size: 0.875rem;
+  }
+}
+
+/* Buttons */
+button.bg-black, button.bg-white {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  button.bg-black, button.bg-white {
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
