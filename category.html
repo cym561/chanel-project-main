@@ -14,95 +14,105 @@
 </head>
 <body class="h-full">
    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-2">
-          <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto">
-        </a>
-  
-        <!-- Toggle button (mobile) -->
-        <div class="lg:hidden">
-          <button id="mobileMenuToggle" class="text-gray-600 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path id="hamburger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center space-x-2">
+        <img src="logo.png" alt="Chanel Logo" class="h-8 w-auto">
+      </a>
+
+      <!-- Toggle button (mobile) -->
+      <div class="lg:hidden">
+        <button id="mobileMenuToggle" class="text-gray-600 focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="hamburger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu items -->
+      <div id="menuItems" class="hidden lg:flex space-x-6 items-center">
+        <!-- Dropdown -->
+        <div class="relative group">
+          <button id="dropdownToggle" class="flex items-center text-gray-700 hover:text-black font-medium focus:outline-none">
+            <span>Categories</span>
+            <svg class="ml-1 h-4 w-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-        </div>
-  
-        <!-- Menu items -->
-        <div id="menuItems" class="hidden lg:flex space-x-6 items-center">
-          <!-- Dropdown -->
-          <div class="relative group">
-            <button id="dropdownToggle" class="flex items-center text-gray-700 hover:text-black font-medium focus:outline-none">
-              <span>Categories</span>
-              <svg class="ml-1 h-4 w-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <!-- Dropdown menu -->
-            <div id="dropdownMenu"
-              class="hidden absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg z-50 group-hover:block">
-              <!-- List Items with Icons -->
-              <a href="#moisturizer" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="moist 1.avif" alt="" class="w-5 h-5"> Moisturizer
-              </a>
-              <a href="#toner" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="lotion 1.avif" alt="" class="w-5 h-5"> Toner
-              </a>
-              <a href="#bodycare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="bodycream 1.avif" alt="" class="w-5 h-5"> Body Care
-              </a>
-              <a href="#eyecare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="eye 6.avif" alt="" class="w-5 h-5"> Eye Care
-              </a>
-              <a href="#oils" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="oil 3.avif" alt="" class="w-5 h-5"> Facial Oils
-              </a>
-              <a href="#serums" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="serum 3.avif" alt="" class="w-5 h-5"> Serums
-              </a>
-              <a href="#jewelry" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="jewel 9.webp" alt="" class="w-5 h-5"> Jewelry
-              </a>
-              <a href="#watches" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
-                <img src="watch 9.webp" alt="" class="w-5 h-5"> Watches
-              </a>
-            </div>
+          <!-- Dropdown menu -->
+          <div id="dropdownMenu"
+            class="hidden absolute left-0 mt-2 w-44 bg-white border border-gray-200 rounded-md shadow-lg z-50 group-hover:block">
+            <!-- List Items with Icons -->
+            <a href="#moisturizer" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="moist 1.avif" alt="" class="w-5 h-5"> Moisturizer
+            </a>
+            <a href="#toner" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="lotion 1.avif" alt="" class="w-5 h-5"> Toner
+            </a>
+            <a href="#bodycare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="bodycream 1.avif" alt="" class="w-5 h-5"> Body Care
+            </a>
+            <a href="#eyecare" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="eye 6.avif" alt="" class="w-5 h-5"> Eye Care
+            </a>
+            <a href="#oils" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="oil 3.avif" alt="" class="w-5 h-5"> Facial Oils
+            </a>
+            <a href="#serums" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="serum 3.avif" alt="" class="w-5 h-5"> Serums
+            </a>
+            <a href="#jewelry" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="jewel 9.webp" alt="" class="w-5 h-5"> Jewelry
+            </a>
+            <a href="#watches" class="flex items-center px-4 py-2 hover:bg-gray-100 gap-2 text-sm">
+              <img src="watch 9.webp" alt="" class="w-5 h-5"> Watches
+            </a>
           </div>
-  
-          <a href="index.html" class="text-gray-700 hover:text-black font-medium">Home</a>
-          <a href="Runway.html" class="text-gray-700 hover:text-black font-medium">Runway</a>
+        </div>
+
+        <a href="index.html" class="text-gray-700 hover:text-black font-medium">Home</a>
+        <a href="Runway.html" class="text-gray-700 hover:text-black font-medium">Runway</a>
+
+        <!-- Cart (desktop) -->
+        <div class="relative">
+          <a href="cart.html" class="flex items-center text-gray-700 hover:text-black font-medium relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-13z" />
+              <circle cx="9" cy="20" r="1" />
+              <circle cx="18" cy="20" r="1" />
+            </svg>
+            <span>Cart</span>
+            <span id="cartCountDesktop" class="absolute -top-2 -right-3 bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
+          </a>
         </div>
       </div>
     </div>
-  
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="lg:hidden hidden px-4 pt-2 pb-4 space-y-2">
-      <a href="index.html" class="block text-gray-700 hover:text-black">Home</a>
-      <a href="Runway.html" class="block text-gray-700 hover:text-black">Runway</a>
-      <!-- Cart Icon with Badge -->
-<div class="relative">
-  <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M6 6h15l-1.5 9h-13z" />
-      <circle cx="9" cy="20" r="1" />
-      <circle cx="18" cy="20" r="1" />
-    </svg>
-    Cart
-  </a>
-  <span id="cartCount" class="absolute top-1 -left-2 bg-orange-600 text-white 
-  text-xs w-5 h-5 flex items-center justify-center rounded-full">
-    0
-  </span>
-</div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="lg:hidden hidden px-4 pt-2 pb-4 space-y-2">
+    <a href="index.html" class="block text-gray-700 hover:text-black">Home</a>
+    <a href="Runway.html" class="block text-gray-700 hover:text-black">Runway</a>
+    <!-- Cart Icon with Badge -->
+    <div class="relative">
+      <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6h15l-1.5 9h-13z" />
+          <circle cx="9" cy="20" r="1" />
+          <circle cx="18" cy="20" r="1" />
+        </svg>
+        Cart
+      </a>
+      <span id="cartCountMobile" class="absolute top-1 -left-2 bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
+    </div>
     <!-- Mobile Dropdown -->
-      <details class="text-gray-700">
-        <summary class="cursor-pointer py-2 font-medium">Categories</summary>
-        <div class="space-y-1 pl-4">
-          <a href="#moisturizer" class="block text-sm flex items-center gap-2 py-1"><img src="moist 1.avif" class="w-5 h-5"> Moisturizer</a>
+    <details class="text-gray-700">
+      <summary class="cursor-pointer py-2 font-medium">Categories</summary>
+      <div class="space-y-1 pl-4">
+        <a href="#moisturizer" class="block text-sm flex items-center gap-2 py-1"><img src="moist 1.avif" class="w-5 h-5"> Moisturizer</a>
           <a href="#toner" class="block text-sm flex items-center gap-2 py-1"><img src="lotion 1.avif" class="w-5 h-5"> Toner</a>
           <a href="#bodycare" class="block text-sm flex items-center gap-2 py-1"><img src="bodycream 1.avif" class="w-5 h-5"> Body Care</a>
           <a href="#eyecare" class="block text-sm flex items-center gap-2 py-1"><img src="eye 6.avif" class="w-5 h-5"> Eye Care</a>
@@ -110,10 +120,10 @@
           <a href="#serums" class="block text-sm flex items-center gap-2 py-1"><img src="serum 3.avif" class="w-5 h-5"> Serums</a>
           <a href="#jewelry" class="block text-sm flex items-center gap-2 py-1"><img src="jewel 9.webp" class="w-5 h-5"> Jewelry</a>
           <a href="#watches" class="block text-sm flex items-center gap-2 py-1"><img src="watch 9.webp" class="w-5 h-5"> Watches</a>
-        </div>
-      </details>
-    </div>
-  </nav>
+      </div>
+    </details>
+  </div>
+</nav>
   
     
    <h1 id="moisturizer" class="reveal text-3xl font-bold text-center mb-9 mt-20">Moisturizer</h1>
@@ -1314,9 +1324,19 @@ function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const count = cart.length;
     const cartCountElement = document.getElementById('cartCount');
+    const cartCountDesktopElement = document.getElementById('cartCountDesktop');
+    const cartCountMobileElement = document.getElementById('cartCountMobile');
     if (cartCountElement) {
       cartCountElement.textContent = count;
       cartCountElement.style.display = count > 0 ? 'flex' : 'none';
+    }
+    if (cartCountDesktopElement) {
+      cartCountDesktopElement.textContent = count;
+      cartCountDesktopElement.style.display = count > 0 ? 'block' : 'none';
+    }
+    if (cartCountMobileElement) {
+      cartCountMobileElement.textContent = count;
+      cartCountMobileElement.style.display = count > 0 ? 'block' : 'none';
     }
   }
 
