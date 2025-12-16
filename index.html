@@ -18,49 +18,74 @@
 <body>
     
   <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-  <div class="flex items-center justify-between px-4 py-3 md:px-8">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Logo -->
     <a href="index.html" class="flex items-center">
       <img src="logo.png" alt="Chanel Logo" class="h-10 w-auto" />
     </a>
 
-    <!-- Hamburger Toggle Button (mobile only) -->
-     <div id="mobileMenu" class=" px-4 pt-2 pb-4 space-y-2">
-       <a href="index.html" class="block text-gray-700 hover:text-black">Home</a>
-       <a href="category.html" class="block text-gray-700 hover:text-black">Category</a>
-       <a href="Runway.html" class="block text-gray-700 hover:text-black">Runway</a>
-    <!-- Cart Icon with Badge -->
-    <div class="relative">
-      <a href="cart.html" class="font-m rounded-lg px-3 py-2 text-gray-700 hover:text-gray-900 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 6h15l-1.5 9h-13z" />
-          <circle cx="9" cy="20" r="1" />
-          <circle cx="18" cy="20" r="1" />
+    <div class="flex items-center gap-4">
+      <!-- Hamburger (mobile) -->
+      <button id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden p-2 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        Cart
-      </a>
-      <span id="cartCountMobile" class="absolute top-1 -left-2 bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
-    </div>
-    <!-- Nav Links -->
-    <div id="menu" class="hidden md:flex md:flex-row md:items-center gap-6">
-      <a href="/" class="font-medium text-gray-700 hover:text-black transition duration-200">Home</a>
-      <a href="category.html" class="font-medium text-gray-700 hover:text-black transition duration-200">Categories</a>
-      <a href="runway.html" class="font-medium text-gray-700 hover:text-black transition duration-200">Runway</a>
+        <span class="sr-only">Open main menu</span>
+      </button>
 
-      <!-- Cart -->
-      <div class="relative">
-        <a href="cart.html" class="font-medium text-gray-700 hover:text-black flex items-center transition duration-200 relative">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <!-- Desktop menu -->
+      <div id="desktopMenu" class="hidden md:flex md:items-center md:gap-6">
+        <a href="/" class="font-medium text-gray-700 hover:text-black transition duration-200">Home</a>
+        <a href="category.html" class="font-medium text-gray-700 hover:text-black transition duration-200">Categories</a>
+        <a href="runway.html" class="font-medium text-gray-700 hover:text-black transition duration-200">Runway</a>
+
+        <!-- Cart (desktop) -->
+        <div class="relative">
+          <a href="cart.html" class="flex items-center text-gray-700 hover:text-black font-medium relative px-2 py-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-13z" />
+              <circle cx="9" cy="20" r="1" />
+              <circle cx="18" cy="20" r="1" />
+            </svg>
+            <span>Cart</span>
+            <span id="cartCount" class="absolute -top-2 -right-2 bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu (dropdown, full-width under nav) -->
+  <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col space-y-2">
+      <a href="/" class="block text-gray-700 hover:text-black px-3 py-2 rounded">Home</a>
+      <a href="category.html" class="block text-gray-700 hover:text-black px-3 py-2 rounded">Category</a>
+      <a href="runway.html" class="block text-gray-700 hover:text-black px-3 py-2 rounded">Runway</a>
+
+      <a href="cart.html" class="flex items-center justify-between text-gray-700 hover:text-black px-3 py-2 rounded">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 6h15l-1.5 9h-13z" />
             <circle cx="9" cy="20" r="1" />
             <circle cx="18" cy="20" r="1" />
           </svg>
-          Cart
-          <span id="cartCount" class="absolute -top-2 -right-2 bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-            0
-          </span>
-        </a>
-      </div>
+          <span>Cart</span>
+        </div>
+        <span id="cartCountMobile" class="bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
+      </a>
+
+      <!-- mobile categories dropdown (accessible) -->
+      <details class="bg-white">
+        <summary class="cursor-pointer py-2 px-3 font-medium text-gray-700">Categories</summary>
+        <div class="pl-4 pr-3 pb-2 flex flex-col space-y-1">
+          <a href="#moisturizer" class="text-sm text-gray-700 hover:text-black">Moisturizer</a>
+          <a href="#toner" class="text-sm text-gray-700 hover:text-black">Toner</a>
+          <a href="#bodycare" class="text-sm text-gray-700 hover:text-black">Body Care</a>
+          <a href="#eyecare" class="text-sm text-gray-700 hover:text-black">Eye Care</a>
+          <a href="#oils" class="text-sm text-gray-700 hover:text-black">Facial Oils</a>
+          <a href="#serums" class="text-sm text-gray-700 hover:text-black">Serums</a>
+        </div>
+      </details>
     </div>
   </div>
 </nav>
@@ -643,66 +668,90 @@
 <!-- Icon Library (Remixicon) -->
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
+<script>
+  // Toggle mobile menu and keep responsive behavior
+  (function () {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-   <script>
-document.getElementById("menuToggle").addEventListener("click", function () {
-    const menu = document.getElementById("menu");
-    const isOpen = !menu.classList.contains('hidden');
-    // Toggle visual classes for mobile dropdown
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("block");
-    if (!isOpen) {
-      // open: add positioning classes so menu becomes a dropdown on small screens
-      menu.classList.add('absolute','left-0','right-0','top-full','bg-white','shadow-md','p-4','md:static','md:bg-transparent','md:shadow-none','md:p-0');
-      this.setAttribute('aria-expanded','true');
-    } else {
-      // close: remove mobile dropdown-only classes
-      menu.classList.remove('absolute','left-0','right-0','top-full','bg-white','shadow-md','p-4','md:static','md:bg-transparent','md:shadow-none','md:p-0');
-      this.setAttribute('aria-expanded','false');
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.classList.add('bg-gray-100');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.classList.remove('bg-gray-100');
+      }
+    });
+
+    // close mobile menu on outside click
+    window.addEventListener('click', (e) => {
+      if (!mobileMenu.classList.contains('hidden') && !e.target.closest('#mobileMenu') && !e.target.closest('#menuToggle')) {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.classList.remove('bg-gray-100');
+      }
+    });
+
+    // ensure mobile menu is hidden and toggle reset on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.classList.remove('bg-gray-100');
+      }
+    });
+
+    // Cart badges update (desktop + mobile)
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const count = cart.reduce((s, item) => s + (Number(item.quantity) || 0), 0);
+
+      const desktop = document.getElementById('cartCount');
+      const mobile = document.getElementById('cartCountMobile');
+
+      if (desktop) {
+        desktop.textContent = count;
+        desktop.classList.toggle('hidden', count === 0);
+      }
+      if (mobile) {
+        mobile.textContent = count;
+        mobile.classList.toggle('hidden', count === 0);
+      }
     }
-  });
 
-  // Remove broken/non-existent references and use a single toggle handler above.
-  // Fix cart count to sum quantities and update on addToBag.
-  function addToBag(buttonElement, event) {
-    event.stopPropagation(); // Prevent parent viewProduct from triggering
+    // Expose addToBag for product buttons and ensure it updates badges
+    window.addToBag = function (buttonElement, event) {
+      event.stopPropagation();
+      const itemElement = buttonElement.closest('.item');
+      if (!itemElement) return;
+      const title = itemElement.dataset.title;
+      const description = itemElement.dataset.description;
+      const price = itemElement.dataset.price;
+      const image = itemElement.dataset.img;
+      const newItem = { name: title, about: description, price: price, image: image };
 
-    const itemElement = buttonElement.closest('.item');
-    const title = itemElement.dataset.title;
-    const description = itemElement.dataset.description;
-    const price = itemElement.dataset.price;
-    const image = itemElement.dataset.img;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const idx = cart.findIndex(i => i.name === newItem.name);
+      if (idx !== -1) {
+        cart[idx].quantity = (cart[idx].quantity || 1) + 1;
+      } else {
+        newItem.quantity = 1;
+        cart.push(newItem);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      // optionally give minimal feedback
+      // alert('Item added to cart!');
+    };
 
-    const newItem = { name: title, about: description, price: price, image: image };
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const index = cart.findIndex(item => item.name === newItem.name);
-
-    if (index !== -1) {
-      cart[index].quantity = (cart[index].quantity || 1) + 1;
-    } else {
-      newItem.quantity = 1;
-      cart.push(newItem);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    alert('Item added to cart!');
-  }
-
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    // Sum quantities so count reflects total items, not unique products
-    const count = cart.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
-    const cartCountElement = document.getElementById('cartCount');
-    if (cartCountElement) {
-      cartCountElement.textContent = count;
-      cartCountElement.style.display = count > 0 ? 'flex' : 'none';
-    }
-  }
-
-  // Run on page load
-  window.addEventListener('DOMContentLoaded', updateCartCount);
+    // init
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+  })();
 </script>   
     
 </body>
