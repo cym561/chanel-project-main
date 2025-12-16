@@ -25,10 +25,11 @@
     </a>
 
     <!-- Hamburger Toggle Button (mobile only) -->
-    <button id="menuToggle" class="md:hidden text-gray-700 focus:outline-none">
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <button id="menuToggle" aria-expanded="false" aria-controls="menu" class="md:hidden text-gray-700 focus:outline-none">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
+      <span class="sr-only">Open menu</span>
     </button>
 
     <!-- Nav Links -->
@@ -40,7 +41,7 @@
       <!-- Cart -->
       <div class="relative">
         <a href="cart.html" class="font-medium text-gray-700 hover:text-black flex items-center transition duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M6 6h15l-1.5 9h-13z" />
             <circle cx="9" cy="20" r="1" />
             <circle cx="18" cy="20" r="1" />
@@ -636,51 +637,55 @@
 
 
    <script>
-
 document.getElementById("menuToggle").addEventListener("click", function () {
     const menu = document.getElementById("menu");
+    const isOpen = !menu.classList.contains('hidden');
+    // Toggle visual classes for mobile dropdown
     menu.classList.toggle("hidden");
+    menu.classList.toggle("block");
+    if (!isOpen) {
+      // open: add positioning classes so menu becomes a dropdown on small screens
+      menu.classList.add('absolute','left-0','right-0','top-full','bg-white','shadow-md','p-4','md:static','md:bg-transparent','md:shadow-none','md:p-0');
+      this.setAttribute('aria-expanded','true');
+    } else {
+      // close: remove mobile dropdown-only classes
+      menu.classList.remove('absolute','left-0','right-0','top-full','bg-white','shadow-md','p-4','md:static','md:bg-transparent','md:shadow-none','md:p-0');
+      this.setAttribute('aria-expanded','false');
+    }
   });
 
-  const toggleBtn = document.getElementById("mobileMenuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  toggleBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-
-
-
+  // Remove broken/non-existent references and use a single toggle handler above.
+  // Fix cart count to sum quantities and update on addToBag.
   function addToBag(buttonElement, event) {
-  event.stopPropagation(); // Prevent parent viewProduct from triggering
+    event.stopPropagation(); // Prevent parent viewProduct from triggering
 
-  const itemElement = buttonElement.closest('.item');
-  const title = itemElement.dataset.title;
-  const description = itemElement.dataset.description;
-  const price = itemElement.dataset.price;
-  const image = itemElement.dataset.img;
+    const itemElement = buttonElement.closest('.item');
+    const title = itemElement.dataset.title;
+    const description = itemElement.dataset.description;
+    const price = itemElement.dataset.price;
+    const image = itemElement.dataset.img;
 
-  const newItem = { name: title, about: description, price: price, image: image };
+    const newItem = { name: title, about: description, price: price, image: image };
 
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const index = cart.findIndex(item => item.name === newItem.name);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const index = cart.findIndex(item => item.name === newItem.name);
 
-  if (index !== -1) {
-    // If item already exists, increase its quantity
-    cart[index].quantity = (cart[index].quantity || 1) + 1;
-  } else {
-    // Add new item with quantity 1
-    newItem.quantity = 1;
-    cart.push(newItem);
+    if (index !== -1) {
+      cart[index].quantity = (cart[index].quantity || 1) + 1;
+    } else {
+      newItem.quantity = 1;
+      cart.push(newItem);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert('Item added to cart!');
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert('Item added to cart!');
-}
-
-function updateCartCount() {
+  function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const count = cart.length;
+    // Sum quantities so count reflects total items, not unique products
+    const count = cart.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
     const cartCountElement = document.getElementById('cartCount');
     if (cartCountElement) {
       cartCountElement.textContent = count;
