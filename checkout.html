@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pay.google.com/gp/p/js/pay.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-6xl mx-auto p-6">
+    <header class="mb-6">
+      <h1 class="text-3xl font-semibold">Checkout</h1>
+      <p class="text-sm text-gray-500">Review your order and complete payment</p>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <section class="lg:col-span-2 bg-white shadow rounded-lg p-6">
+        <form id="checkout-form" novalidate>
+          <fieldset class="mb-6">
+            <legend class="text-lg font-small mb-3">Customer information</legend>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-small">Full name</label>
+                <input name="fullname" id="fullname" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
+              </div>
+              <div>
+                <label class="block text-sm font-small">Email</label>
+                <input name="email" id="email" type="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-small">Shipping address</label>
+              <input name="address" id="address" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <input name="city" id="city" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" placeholder="City" />
+              <input name="postal" id="postal" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" placeholder="Postal code" />
+              <input name="country" id="country" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" placeholder="Country" />
+            </div>
+          </fieldset>
+
+          <fieldset class="mb-6">
+            <legend class="text-lg font-medium mb-3">Payment method</legend>
+
+            <div class="flex items-center gap-6 mb-4">
+              <label class="inline-flex items-center">
+                <input type="radio" name="payment-method" value="card" checked class="form-radio text-indigo-600" />
+                <span class="ml-2">Credit / Debit Card</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input type="radio" name="payment-method" value="google_pay" class="form-radio text-indigo-600" />
+                <span class="ml-2 flex items-center">Google Pay <img src="https://www.gstatic.com/pay/push/icon.svg" alt="GPay" class="h-5 ml-2" /></span>
+              </label>
+            </div>
+
+            <div id="card-section" class="space-y-3">
+              <div>
+                <label class="block text-sm font-medium">Card number</label>
+                <input id="card-number" inputmode="numeric" maxlength="19" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
+                <p id="card-number-error" class="text-xs text-red-600 mt-1 hidden">Invalid card number</p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium">Expiry (MM/YY)</label>
+                  <input id="card-exp" maxlength="5" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium">CVC</label>
+                  <input id="card-cvc" inputmode="numeric" maxlength="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
+                </div>
+              </div>
+
+              <div>
+                <label class="inline-flex items-center text-sm">
+                  <input id="save-card" type="checkbox" class="form-checkbox text-indigo-600" />
+                  <span class="ml-2">Save card for future purchases</span>
+                </label>
+              </div>
+            </div>
+
+            <div id="gpay-section" class="hidden">
+              <p class="text-sm text-gray-600 mb-3">Use Google Pay to complete the purchase.</p>
+              <div id="gpay-button"></div>
+            </div>
+          </fieldset>
+
+          <section id="order-summary" class="bg-gray-50 border rounded-lg p-4 mb-6">
+            <h2 class="text-lg font-medium mb-3">Order summary</h2>
+            <ul id="order-items" class="divide-y divide-gray-100 text-sm mb-3"></ul>
+            <div class="border-t border-gray-100 pt-3">
+              <div class="flex justify-between font-medium">
+                <span>Total</span>
+                <span id="order-total">$0.00</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-3">Secure checkout.</p>
+          </section>
+
+          <div class="flex items-center justify-between">
+            <button id="confirm-btn" type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-5 py-2 rounded-md shadow">Confirm & Pay</button>
+            <button id="cancel-btn" type="button" class="text-sm text-gray-600 hover:underline">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const show = (el) => el.classList.remove('hidden');
+    const hide = (el) => el.classList.add('hidden');
+
+    const paymentRadios = document.querySelectorAll('input[name="payment-method"]');
+    const cardSection = $('card-section');
+    const gpaySection = $('gpay-section');
+
+    function updatePaymentUI() {
+      const method = document.querySelector('input[name="payment-method"]:checked').value;
+      if (method === 'card') {
+        show(cardSection);
+        hide(gpaySection);
+      } else {
+        hide(cardSection);
+        show(gpaySection);
+      }
+    }
+    paymentRadios.forEach(r => r.addEventListener('change', updatePaymentUI));
+    updatePaymentUI();
+
+    function luhnCheck(num) {
+      const digits = num.replace(/\D/g, '').split('').reverse().map(d => parseInt(d, 10));
+      let sum = 0;
+      for (let i = 0; i < digits.length; i++) {
+        let val = digits[i];
+        if (i % 2 === 1) {
+          val *= 2;
+          if (val > 9) val -= 9;
+        }
+        sum += val;
+      }
+      return sum % 10 === 0;
+    }
+
+    const cardNumberInput = $('card-number');
+    cardNumberInput.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '').slice(0,16);
+      v = v.match(/.{1,4}/g)?.join(' ') || v;
+      e.target.value = v;
+      $('card-number-error').classList.add('hidden');
+    });
+
+    function validExpiry(exp) {
+      if (!/^\d{2}\/\d{2}$/.test(exp)) return false;
+      const [mm, yy] = exp.split('/').map(x => parseInt(x, 10));
+      if (mm < 1 || mm > 12) return false;
+      const now = new Date();
+      const year = 2000 + yy;
+      const expiry = new Date(year, mm);
+      return expiry > now;
+    }
+
+    function tokenizeCard({number, exp, cvc}) {
+      return Promise.resolve({
+        token: 'tok_' + btoa(number.slice(-4) + ':' + Date.now()).slice(0, 24),
+        last4: number.slice(-4)
+      });
+    }
+
+    function renderOrderSummary() {
+      const itemsEl = $('order-items');
+      const totalEl = $('order-total');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      itemsEl.innerHTML = '';
+      let total = 0;
+      if (!cart.length) {
+        const li = document.createElement('li');
+        li.className = 'py-3 text-gray-600';
+        li.textContent = 'Your cart is empty.';
+        itemsEl.appendChild(li);
+      } else {
+        cart.forEach(item => {
+          const price = parseFloat(String(item.price).replace(/[^0-9.-]+/g, '')) || 0;
+          const qty = item.quantity || 1;
+          total += price * qty;
+          const li = document.createElement('li');
+          li.className = 'py-3 flex justify-between items-center';
+          li.innerHTML = `<div>
+                            <div class="font-medium">${item.name} <span class="text-xs text-gray-500">×${qty}</span></div>
+                            <div class="text-xs text-gray-500">${item.about || ''}</div>
+                          </div>
+                          <div class="font-semibold">${(price * qty).toLocaleString(undefined, {style:'currency', currency:'USD'})}</div>`;
+          itemsEl.appendChild(li);
+        });
+      }
+      totalEl.textContent = total.toLocaleString(undefined, {style:'currency', currency:'USD'});
+      return total;
+    }
+
+    const form = $('checkout-form');
+    const confirmBtn = $('confirm-btn');
+
+    form.addEventListener('submit', async (evt) => {
+      evt.preventDefault();
+      confirmBtn.disabled = true;
+
+      const method = document.querySelector('input[name="payment-method"]:checked').value;
+
+      const requiredIds = ['fullname', 'email', 'address', 'city', 'postal', 'country'];
+      for (const id of requiredIds) {
+        const el = $(id);
+        if (!el.value.trim()) {
+          alert('Please fill in all required customer fields.');
+          el.focus();
+          confirmBtn.disabled = false;
+          return;
+        }
+      }
+
+      const orderTotal = renderOrderSummary();
+
+      if (method === 'card') {
+        const rawNumber = cardNumberInput.value.replace(/\s+/g, '');
+        const exp = $('card-exp').value;
+        const cvc = $('card-cvc').value;
+
+        if (!luhnCheck(rawNumber)) {
+          $('card-number-error').classList.remove('hidden');
+          confirmBtn.disabled = false;
+          return;
+        }
+        if (!validExpiry(exp)) {
+          alert('Please enter a valid expiry date in MM/YY.');
+          confirmBtn.disabled = false;
+          return;
+        }
+        if (!/^\d{3,4}$/.test(cvc)) {
+          alert('Please enter a valid CVC.');
+          confirmBtn.disabled = false;
+          return;
+        }
+
+        try {
+          const tokenResult = await tokenizeCard({ number: rawNumber, exp, cvc });
+          console.log('Card token:', tokenResult);
+          alert(`Payment successful (demo). Order confirmed. Total: ${orderTotal.toLocaleString(undefined,{style:'currency',currency:'USD'})}`);
+          form.reset();
+          renderOrderSummary();
+          updatePaymentUI();
+        } catch (err) {
+          console.error(err);
+          alert('Payment failed. Try again.');
+        } finally {
+          confirmBtn.disabled = false;
+        }
+      } else if (method === 'google_pay') {
+        if (window.googlePayClientReady) {
+          onGooglePayButtonClicked();
+        } else {
+          alert('Google Pay is not available. Please use a different payment method.');
+          confirmBtn.disabled = false;
+        }
+      } else {
+        alert('Unknown payment method.');
+        confirmBtn.disabled = false;
+      }
+    });
+
+    $('cancel-btn').addEventListener('click', () => {
+      if (confirm('Cancel checkout and return to store?')) {
+        window.location.href = 'index.html';
+      }
+    });
+
+    const paymentsClientConfig = { environment: 'TEST' };
+
+    function getGooglePaymentsClient() {
+      return new google.payments.api.PaymentsClient(paymentsClientConfig);
+    }
+
+    const baseRequest = { apiVersion: 2, apiVersionMinor: 0 };
+
+    const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+    const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+
+    const tokenizationSpecification = {
+      type: 'PAYMENT_GATEWAY',
+      parameters: {
+        gateway: '',
+        gatewayMerchantId: ''
+      }
+    };
+
+    const cardPaymentMethod = {
+      type: 'CARD',
+      parameters: {
+        allowedAuthMethods: allowedCardAuthMethods,
+        allowedCardNetworks: allowedCardNetworks
+      },
+      tokenizationSpecification: tokenizationSpecification
+    };
+
+    const isReadyToPayRequest = Object.assign({}, baseRequest);
+    isReadyToPayRequest.allowedPaymentMethods = [cardPaymentMethod];
+
+    function onGooglePayLoaded() {
+      try {
+        const paymentsClient = getGooglePaymentsClient();
+        paymentsClient.isReadyToPay(isReadyToPayRequest)
+          .then(function(response) {
+            if (response.result) {
+              const button = paymentsClient.createButton({ onClick: onGooglePayButtonClicked });
+              $('gpay-button').appendChild(button);
+              window.googlePayClientReady = true;
+            } else {
+              window.googlePayClientReady = false;
+            }
+          })
+          .catch(function(err) {
+            console.error('isReadyToPay error', err);
+            window.googlePayClientReady = false;
+          });
+      } catch (err) {
+        console.error('Google Pay initialization error', err);
+        window.googlePayClientReady = false;
+      }
+    }
+
+    function onGooglePayButtonClicked() {
+      const paymentsClient = getGooglePaymentsClient();
+      const paymentDataRequest = Object.assign({}, baseRequest);
+      paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
+
+      const total = renderOrderSummary();
+      paymentDataRequest.transactionInfo = {
+        totalPriceStatus: 'FINAL',
+        totalPrice: total.toFixed(2),
+        currencyCode: 'USD'
+      };
+      paymentDataRequest.merchantInfo = { merchantName: '' };
+
+      paymentsClient.loadPaymentData(paymentDataRequest)
+        .then(function(paymentData) {
+          console.log('Google Pay response', paymentData);
+          alert('Google Pay payment completed (demo). Order confirmed.');
+          form.reset();
+          renderOrderSummary();
+          updatePaymentUI();
+        })
+        .catch(function(err) {
+          console.error('loadPaymentData failed', err);
+          alert('Google Pay was canceled or failed.');
+        });
+    }
+
+    if (window.google && google.payments && google.payments.api) {
+      onGooglePayLoaded();
+    } else {
+      const gpayInterval = setInterval(() => {
+        if (window.google && google.payments && google.payments.api) {
+          clearInterval(gpayInterval);
+          onGooglePayLoaded();
+        }
+      }, 250);
+      setTimeout(() => clearInterval(gpayInterval), 10000);
+    }
+
+    window.addEventListener('load', () => {
+      renderOrderSummary();
+    });
+  </script>
+</body>
+</html>
