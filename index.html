@@ -40,18 +40,17 @@
 
       <!-- Cart -->
       <div class="relative">
-        <a href="cart.html" class="font-medium text-gray-700 hover:text-black flex items-center transition duration-200">
+        <a href="cart.html" class="font-medium text-gray-700 hover:text-black flex items-center transition duration-200 relative">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M6 6h15l-1.5 9h-13z" />
             <circle cx="9" cy="20" r="1" />
             <circle cx="18" cy="20" r="1" />
           </svg>
           Cart
+          <span id="cartCount" class="absolute -top-2 -right-2 bg-orange-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+            0
+          </span>
         </a>
-        <span id="cartCount" class="absolute -top-2 -right-3 bg-orange-600 text-white 
-          text-xs w-5 h-5 flex items-center justify-center rounded-full">
-          0
-        </span>
       </div>
     </div>
   </div>
